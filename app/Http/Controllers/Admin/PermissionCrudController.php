@@ -16,6 +16,6 @@ class PermissionCrudController extends BackpackPermissionsCrudControlleruse
     public function setup()
     {
         parent::setup();
-        $this->setAccessUsingPermissions(['list', 'show', 'create', 'update', 'delete']);
+        $this->setAccessUsingPermissions(['list', 'show', 'create', 'update', 'delete']); //العمليات التي سيتم منعها بشكل تلقائي
     }
 }
