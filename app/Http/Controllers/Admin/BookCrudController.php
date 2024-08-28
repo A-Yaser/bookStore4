@@ -31,7 +31,7 @@ class BookCrudController extends CrudController
         CRUD::setModel(\App\Models\Book::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/book');
         CRUD::setEntityNameStrings('book', 'books');
-        $this->setAccessUsingPermissions(['list', 'show', 'create', 'update', 'delete']);
+        $this->setAccessUsingPermissions(['delete']);
     }
 
     /**

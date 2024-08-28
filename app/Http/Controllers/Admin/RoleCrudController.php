@@ -14,10 +14,10 @@ use Backpack\PermissionManager\app\Http\Controllers\RoleCrudController as Backpa
 class RoleCrudController extends BackpackRoleCrudController
 {
     use \App\Traits\CrudPermissionTrait;
-    private array $operations = ['list', 'show', 'create', 'update', 'delete'];
+    // private array $operations = ['list', 'show', 'create', 'update', 'delete'];
     public function setup()
     {
         parent::setup();
-        $this->setAccessUsingPermissions($this->operations);
+        $this->setAccessUsingPermissions(['list', 'show', 'create', 'update', 'delete']); //العمليات التي سيتم منعها بشكل تلقائي
     }
 }

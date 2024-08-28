@@ -1,6 +1,6 @@
 @inject('helper', 'Backpack\LanguageSwitcher\Helpers\LanguageSwitcherHelper')
 {{-- {{__("dashboard.Language")}} --}}
-
+@include('backpack.language-switcher::language-switcher')
 <x-backpack::menu-dropdown title="{{trans('dashboard.Authentication')}}" icon="la las la-shield-alt">
     {{-- <x-backpack::menu-dropdown-header title="Authentication" /> --}}
     @can('users.see')<x-backpack::menu-dropdown-item title="{{trans('dashboard.Users')}}" icon="la la-user" :link="backpack_url('user')" />@endcan
