@@ -60,7 +60,6 @@ class UserCrudController extends CrudController
 
         /**
          * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
          */
     }
 

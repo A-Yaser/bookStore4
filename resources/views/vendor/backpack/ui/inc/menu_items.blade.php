@@ -48,7 +48,7 @@
     {{-- <x-backpack::menu-dropdown-header title="Authentication" /> --}}
     <x-backpack::menu-dropdown-item title="{{trans('dashboard.Users')}}" icon="la la-user" :link="backpack_url('user')" />
     <x-backpack::menu-dropdown-item title="{{trans('dashboard.Roles')}}" icon="la la-group" :link="backpack_url('role')" />
-    <x-backpack::menu-dropdown-item title="title="{{trans('dashboard.Permissions')}}" icon="la la-key" :link="backpack_url('permission')" />
+    <x-backpack::menu-dropdown-item title="{{trans('dashboard.Permissions')}}" icon="la la-key" :link="backpack_url('permission')" />
 </x-backpack::menu-dropdown>
 @endrole
 

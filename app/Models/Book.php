@@ -30,7 +30,6 @@ class Book extends Model
         'title',
         'description',
         'pages_count',
-        //'author',
         'status',
         'release_date',
         'price',
@@ -40,7 +39,7 @@ class Book extends Model
     public $translatable = [
         'title',
         'description',
-        'slug',
+
 
     ];
 

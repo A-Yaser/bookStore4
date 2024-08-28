@@ -44,7 +44,7 @@ return [
 
     // Direction, according to language
     // (left-to-right vs right-to-left)
-    'html_direction' => 'rtl', //$layout,
+    'html_direction' => 'ltr', //$layout,
 
     // ----
     // HEAD

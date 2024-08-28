@@ -17,11 +17,11 @@ class Author extends Model
     protected $fillable = [
         'name',
         'bio',
-        'Photo',
+        'photo',
     ];
     public $translatable = [
         'name',
-        'Bio',
+        'bio',
 
     ];
 
