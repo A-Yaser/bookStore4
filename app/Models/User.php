@@ -14,8 +14,8 @@ class User extends Authenticatable
 {
     use CrudTrait;
     use HasApiTokens, HasFactory, Notifiable;
-    use CrudTrait;
     use HasRoles;
+
 
     /**
      * The attributes that are mass assignable.

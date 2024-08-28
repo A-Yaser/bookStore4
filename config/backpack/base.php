@@ -118,6 +118,7 @@ return [
         \Backpack\LanguageSwitcher\Http\Middleware\LanguageSwitcherMiddleware::class,
 
 
+
         // \Backpack\CRUD\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
     ],
 

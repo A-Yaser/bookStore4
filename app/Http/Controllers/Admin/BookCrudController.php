@@ -40,8 +40,19 @@ class BookCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::setFromDb(); // set columns from db columns.
+        CRUD::group( //لإضافة لاحقة لأحد الأعمدة
+            CRUD::column('price'),
+        )->prefix('$');
+        // $this->crud->enableBulkActions();
+        CRUD::column('cover_image')->type('image');
+        CRUD::column('authors');
+        CRUD::column('publishers');
+        CRUD::column('categories');
 
-        // CRUD::column('authors')->type('text');
+        CRUD::removeColumn(['slug']);
+        CRUD::removeColumn(['description']);
+        CRUD::removeColumn(['release_date']);
+
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -58,8 +69,10 @@ class BookCrudController extends CrudController
     {
         CRUD::setValidation(BookRequest::class);
         CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field('authors')->type('select_multiple');
+        CRUD::field('publishers')->type('select_multiple');
+        CRUD::field('categories')->type('select_multiple');
 
-        CRUD::field('authors');
         CRUD::field('title')->type('text');
         CRUD::field('cover_image')->type('upload');
         CRUD::field([
@@ -72,8 +85,6 @@ class BookCrudController extends CrudController
             ]
         ]);
 
-
-        CRUD::field('slug')->type('text');
         /**
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');

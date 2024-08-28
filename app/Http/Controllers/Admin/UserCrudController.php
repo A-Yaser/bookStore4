@@ -40,10 +40,10 @@ class UserCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::setFromDb(); // set columns from db columns.
+        // CRUD::column('roles');
 
         /**
          * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
          */
     }
 

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Backpack\PermissionManager\app\Models\Permission;
 use Backpack\PermissionManager\app\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class PermissionSeeder extends Seeder
 {
@@ -36,7 +37,21 @@ class PermissionSeeder extends Seeder
             )
             //
         ;
-        User::first()
+        $user = User::create(
+            [
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('admin1122'),
+
+            ]
+        );
+        $role = Role::create([
+            'name' => 'admin'
+        ]);
+        $role->givePermissionTo(Permission::all());
+
+        $user->assignRole($role);
+        $user
             ->givePermissionTo(['users.edit']);
     }
 }
