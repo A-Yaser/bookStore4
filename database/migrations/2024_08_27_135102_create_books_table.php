@@ -25,7 +25,7 @@ return new class extends Migration
             // $table->fsoreign('publisher_id')->references('id')->on('publishers')->onDelete('cascade');
             $table->integer('price');
             $table->string('cover_image')->nullable();
-            $table->json('slug');
+            $table->text('slug')->nullable();
             $table->timestamps();
         });
     }

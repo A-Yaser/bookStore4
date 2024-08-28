@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
 
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('set null');
-            $table->json('slug');
+            $table->text('slug')->nullable();
             $table->timestamps();
         });
     }

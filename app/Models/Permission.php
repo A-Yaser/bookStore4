@@ -5,16 +5,11 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-
-class Book extends Model
+class Permission extends Model
 {
     use CrudTrait;
     use HasFactory;
-    use HasTranslations;
-
 
     /*
     |--------------------------------------------------------------------------
@@ -22,28 +17,11 @@ class Book extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'books';
+    protected $table = 'permissions';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = [
-        'title',
-        'description',
-        'pages_count',
-        'status',
-        'release_date',
-        'price',
-        'cover_image',
-        'slug',
-    ];
-    public $translatable = [
-        'title',
-        'description',
-
-
-    ];
-
-
+    // protected $fillable = [];
     // protected $hidden = [];
 
     /*
@@ -52,20 +30,6 @@ class Book extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function authors(): BelongsToMany
-    {
-        return $this->belongsToMany(Author::class, 'book_author');
-    }
-
-    public function categories(): BelongsToMany
-    {
-        return $this->belongsToMany(Category::class, 'category_book');
-    }
-
-    public function publishers(): BelongsToMany
-    {
-        return $this->belongsToMany(Publisher::class, 'book_publisher');
-    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
