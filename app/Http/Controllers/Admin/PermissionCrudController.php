@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\PermissionManager\app\Http\Controllers\UserCrudController as BackpackUserCrudController;
+use Backpack\PermissionManager\app\Http\Controllers\PermissionCrudController as BackpackPermissionsCrudControlleruse;
 
 /**
- * Class UserCrudController
+ * Class PermissionCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class UserCrudController extends BackpackUserCrudController
+class PermissionCrudController extends BackpackPermissionsCrudControlleruse
 {
     use \App\Traits\CrudPermissionTrait;
     // private array $operations = ['list', 'show', 'create', 'update', 'delete'];

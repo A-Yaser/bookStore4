@@ -41,9 +41,9 @@ class AuthorCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
 
-        if (!backpack_user()->hasRole('admin') && !backpack_user()->hasRole('writer')) {
-            CRUD::denyAccess('delete');
-        }
+        // if (!backpack_user()->hasRole('admin') && !backpack_user()->hasRole('writer')) {
+        //     CRUD::denyAccess('delete');
+        // }
         CRUD::column('books')->type('relationship_count');
 
         // CRUD::setOperationSetting('lineButtonsAsDropdown', true);

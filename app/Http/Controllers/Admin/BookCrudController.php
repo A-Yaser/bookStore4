@@ -19,6 +19,8 @@ class BookCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use \App\Traits\CrudPermissionTrait;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -29,6 +31,7 @@ class BookCrudController extends CrudController
         CRUD::setModel(\App\Models\Book::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/book');
         CRUD::setEntityNameStrings('book', 'books');
+        $this->setAccessUsingPermissions(['list', 'show', 'create', 'update', 'delete']);
     }
 
     /**

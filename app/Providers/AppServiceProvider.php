@@ -11,7 +11,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            \Backpack\PermissionManager\app\Http\Controllers\UserCrudController::class, // package controller
+            \App\Http\Controllers\Admin\UserCrudController::class // the controller using CrudPermissionTrait
+        );
+        $this->app->bind(
+            \Backpack\PermissionManager\app\Http\Controllers\RoleCrudController::class, // package controller
+            \App\Http\Controllers\Admin\RoleCrudController::class // the controller using CrudPermissionTrait
+        );
+        $this->app->bind(
+            \Backpack\PermissionManager\app\Http\Controllers\PermissionCrudController::class, // package controller
+            \App\Http\Controllers\Admin\PermissionCrudController::class // the controller using CrudPermissionTrait
+        );
     }
 
     /**
