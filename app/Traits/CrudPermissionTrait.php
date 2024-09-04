@@ -19,10 +19,10 @@ trait CrudPermissionTrait
      *
      * @return void
      */
-    public function setAccessUsingPermissions($operations)
+    public function setAccessUsingPermissions()
     {
         // default
-        $this->crud->denyAccess($operations);
+        $this->crud->denyAccess($this->operations);
 
 
         // get context
@@ -33,15 +33,11 @@ trait CrudPermissionTrait
         if (!$user) {
             return; // allow nothing
         }
-        $levels = [
-            // permission level => [crud operations]
-            'see' => ['list', 'show'], // e.g. permission 'users.see' allows to display users
-            'edit' => ['list', 'show', 'create', 'update', 'delete'], // e.g. 'users.edit' permission allows all operations
-        ];
-        // enable operations depending on permission
-        foreach ($levels as $level => $operations) {
-            if ($user->can("$table.$level")) {
-                $this->crud->allowAccess($operations);
+
+
+        foreach ($this->operations as $operation) {
+            if ($user->can("$table.$operation")) {
+                $this->crud->allowAccess($operation);
             }
         }
     }
