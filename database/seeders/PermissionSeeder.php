@@ -20,14 +20,24 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        // create permission for each combination of table.level
-        collect([ // tables
+
+        $tables = [
             'users',
             'roles',
-        ])
-            ->crossJoin([ // levels
-                'see',
-                'edit',
+            'books',
+            'authors',
+            'Publishers',
+            'categories',
+        ];
+
+        // create permission for each combination of table.level
+        collect($tables)
+            ->crossJoin([
+                'list',
+                'show',
+                'create',
+                'update',
+                'delete'
             ])
             ->each(
                 fn(array $item) => Permission::firstOrCreate([
@@ -37,21 +47,21 @@ class PermissionSeeder extends Seeder
             )
             //
         ;
-        $user = User::create(
+        $user = User::firstOrCreate(
             [
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
-                'password' => Hash::make('admin1122'),
+                // 'password' => Hash::make('admin1122'),
 
             ]
         );
-        $role = Role::create([
+        $user->password = bcrypt('admin1122');
+        $user->save();
+        $role = Role::firstOrCreate([
             'name' => 'admin'
         ]);
         $role->givePermissionTo(Permission::all());
 
         $user->assignRole($role);
-        $user
-            ->givePermissionTo(['users.edit']);
     }
 }

@@ -3,9 +3,9 @@
 @include('backpack.language-switcher::language-switcher')
 <x-backpack::menu-dropdown title="{{trans('dashboard.Authentication')}}" icon="la las la-shield-alt">
     {{-- <x-backpack::menu-dropdown-header title="Authentication" /> --}}
-    @can('users.see')<x-backpack::menu-dropdown-item title="{{trans('dashboard.Users')}}" icon="la la-user" :link="backpack_url('user')" />@endcan
+    @can('users.list')<x-backpack::menu-dropdown-item title="{{trans('dashboard.Users')}}" icon="la la-user" :link="backpack_url('user')" />@endcan
     <x-backpack::menu-dropdown-item title="{{trans('dashboard.Roles')}}" icon="la la-group" :link="backpack_url('role')" />
-    <x-backpack::menu-dropdown-item title="{{trans('dashboard.Permissions')}}" icon="la la-key" :link="backpack_url('permission')" />
+    {{-- <x-backpack::menu-dropdown-item title="{{trans('dashboard.Permissions')}}" icon="la la-key" :link="backpack_url('permission')" /> --}}
 </x-backpack::menu-dropdown>
 
 
@@ -21,6 +21,5 @@
   
 {{-- </x-backpack::menu-dropdown> --}}
 {{-- <x-backpack::menu-item title="Translation Manager" icon="la la-stream" :link="backpack_url('translation-manager')" /> --}}
+
 <x-backpack::menu-item title='Settings' icon='la la-cog' :link="backpack_url('setting')" />
-<x-backpack::menu-item title="Roles" icon="la la-question" :link="backpack_url('role')" />
-<x-backpack::menu-item title="Permissions" icon="la la-question" :link="backpack_url('permission')" />

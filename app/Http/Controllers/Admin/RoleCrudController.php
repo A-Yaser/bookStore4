@@ -18,6 +18,6 @@ class RoleCrudController extends BackpackRoleCrudController
     public function setup()
     {
         parent::setup();
-        $this->setAccessUsingPermissions(['list', 'show', 'create', 'update', 'delete']); //العمليات التي سيتم منعها بشكل تلقائي
+        $this->setAccessUsingPermissions(); //العمليات التي سيتم منعها بشكل تلقائي
     }
 }
