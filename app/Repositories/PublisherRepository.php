@@ -4,15 +4,15 @@ namespace App\Repositories;
 
 
 
-use App\Models\Author;
+use App\Models\Publisher;
 
-abstract class AuthorRepository extends BaseRepository
+abstract class PublisherRepository extends BaseRepository
 {
     /**
      * Configure the Model
      **/
     public function model(): string
     {
-        return Author::class;
+        return Publisher::class;
     }
 }

@@ -2,17 +2,15 @@
 
 namespace App\Repositories;
 
+use App\Models\Book;
 
-
-use App\Models\Author;
-
-abstract class AuthorRepository extends BaseRepository
+abstract class BookRepository extends BaseRepository
 {
     /**
      * Configure the Model
      **/
     public function model(): string
     {
-        return Author::class;
+        return Book::class;
     }
 }

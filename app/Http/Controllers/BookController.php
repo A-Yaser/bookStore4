@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Repositories\BookRepository;
 
 class BookController extends Controller
 {
+    public $repository;
+
+    public function __construct(BookRepository $repository)
+    {
+        $this->repository = $repository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return $this->repository->with('columnItemItems')->get();
     }
 
     /**
