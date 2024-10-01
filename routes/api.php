@@ -1,7 +1,10 @@
 <?php
 
+use App\Rest\Controllers\BooksController;
+use App\Rest\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Lomkit\Rest\Facades\Rest;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Rest::resource('users', UsersController::class);
+
+Rest::resource('books', BooksController::class);
+

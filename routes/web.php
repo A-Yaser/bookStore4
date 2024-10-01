@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/adn', function () {
     return redirect('admin/dashboard');
 });
+
 
 // Route::group(['middleware' => []], function () {
 // });
